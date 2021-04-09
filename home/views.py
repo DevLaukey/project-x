@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def home(request):
-    return render(request, 'home/home.html')
+def landing(request):
+    return render(request, 'home/landing.html')
 
 def dashboard(request):
     return render(request, 'home/sidebar.html')

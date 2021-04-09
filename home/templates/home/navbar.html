@@ -1,21 +1,500 @@
-{% extends 'home/home.html'%} 
-{% block content %} 
 
-<nav>
-    <!-- left -->
-     <i class="fa fa-bars" aria-hidden="true"></i>
-     <img src="https://scontent.fnbo1-1.fna.fbcdn.net/v/t1.6435-0/p526x296/170380606_1339407366432125_902097421149374018_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=730e14&_nc_ohc=belSsNXtRBIAX9MwbMJ&_nc_ht=scontent.fnbo1-1.fna&tp=6&oh=97b83db0690e9c254672dfefd35f22c3&oe=6091C5CE" alt="">
-
-       <input type="text" placeholder=" " />
-       <i class="fa fa-search" aria-hidden="true"></i>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    
-    <!-- right -->
-<i class="fa fa-paperclip" aria-hidden="true"></i>
-  <h6 class="dropdown-header">Dropdown header</h6>
-    <i class="fa fa-calendar" aria-hidden="true"></i>
-<i class="fa fa-comment" aria-hidden="true"></i>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="https://scontent.fnbo1-1.fna.fbcdn.net/v/t1.6435-0/p526x296/170380606_1339407366432125_902097421149374018_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=730e14&_nc_ohc=belSsNXtRBIAX9MwbMJ&_nc_ht=scontent.fnbo1-1.fna&tp=6&oh=97b83db0690e9c254672dfefd35f22c3&oe=6091C5CE"
+    />
+    <script
+      src="https://kit.fontawesome.com/e032ed69ea.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Project X</title>
+  </head>
 
-</nav>
+  <style>
+    * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-{% endblock content%}
+.left_logo {
+  padding: 20;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.left_container {
+  display: flex;
+  flex-direction: column;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+:root {
+  --accent-color: #fff;
+  --gradient-color: #fbfbfb;
+}
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://scontent.fnbo1-1.fna.fbcdn.net/v/t1.6435-9/171243863_1340743466298515_7172246498357821378_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=730e14&_nc_ohc=IsKtGhv063YAX_zbedK&_nc_ht=scontent.fnbo1-1.fna&oh=627f43fb10ceee4660c0f40c8d4a6d8b&oe=6096C014");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: rgb(39, 39, 39) 0.2;
+}
+
+.sidebar {
+  position: fixed;
+  width: 240px;
+  left: -240px;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.5s ease;
+}
+.sidebar header {
+  font-size: 28px;
+  color: #353535;
+  line-height: 70px;
+  text-align: center;
+  background-color: #fff;
+  user-select: none;
+  font-family: "Lato", sans-serif;
+}
+.sidebar a {
+  display: block;
+  height: 65px;
+  width: 100%;
+  color: #353535;
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-left: 5px solid transparent;
+  font-family: "Lato", sans-serif;
+  transition: all 0.5s ease;
+}
+a.active,
+a:hover {
+  border-left: 5px solid var(--accent-color);
+  color: #fff;
+  background: linear-gradient(
+    to left,
+    var(--accent-color),
+    var(--gradient-color)
+  );
+}
+.sidebar a i {
+  font-size: 23px;
+  margin-right: 16px;
+}
+.sidebar a span {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#check {
+  display: none;
+}
+label #btn,
+label #cancel {
+  display: flex;
+  position: absolute;
+  left: 5px;
+  cursor: pointer;
+  color: #050505;
+  border-radius: 5px;
+  margin: 5px 30px;
+  font-size: 29px;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+  line-height:0.1px;
+  transition: all 0.5s ease;
+}
+label #cancel {
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ .sidebar {
+  left: 0;
+}
+#check:checked ~ label #btn {
+  margin-left: 245px;
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ label #cancel {
+  margin-left: 245px;
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 860px) {
+  .sidebar {
+    height: auto;
+    width: 75px;
+    left: 0;
+    margin: 100px 0;
+  }
+  .bar_icon{
+    display: none;
+  }
+  header,
+  #btn,
+  #cancel {
+    display: none;
+  }
+  span {
+    position: absolute;
+    margin-left: 23px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .sidebar a {
+    height: 60px;
+  }
+  .sidebar a i {
+    margin-left: -10px;
+  }
+  a:hover {
+    width: 200px;
+    background: inherit;
+  }
+  .sidebar a:hover span {
+    opacity: 1;
+    visibility: visible;
+  }
+  label #btn{
+    display: none;
+  }
+}
+
+.sidebar > a.active,
+.sidebar > a:hover:nth-child(even) {
+  --accent-color: #52d6f4;
+  --gradient-color: #c1b1f7;
+}
+.sidebar a.active,
+.sidebar > a:hover:nth-child(odd) {
+  --accent-color: #c1b1f7;
+  --gradient-color: #a890fe;
+}
+
+h2 {
+  position: relative;
+  text-align: center;
+  color: #353535;
+  font-size: 60px;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  color: #a759f5;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 30px;
+  color: #d6adff;
+  margin: 0;
+}
+
+/* new css */
+.body_logo {
+  position: absolute;
+  top: 30vh;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.homepage_icon {
+  font-size: 40px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.homepage_content h3 {
+  text-align: center;
+  line-height: 1.9;
+  color: white;
+  text-transform: uppercase;
+}
+
+.frame {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .body_logo {
+    position: absolute;
+    top: 30vh;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 880px) {
+  .body_logo {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .body_logo {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .body_logo {
+    position: absolute;
+
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .frame {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .frame {
+    padding-top: 70vh;
+  }
+  .sidebar {
+    display: none;
+  }
+}
+
+.landing_container {
+  margin: auto;
+  text-align: center;
+  padding-top: 60px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 50px;
+  margin-top: 20px;
+}
+
+.icon_container {
+  padding: 30px;
+}
+
+.homepage_icon {
+  font-size: 40px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.homepage_content h3 {
+  text-align: center;
+  line-height: 1.9;
+  color: white;
+  text-transform: uppercase;
+}
+
+.nav_logo {
+  text-align: center;
+  width: 75px;
+}
+
+.personnel {
+  background-color: rgb(233, 221, 50);
+}
+
+.Inventory {
+  background-color: red;
+}
+
+.students {
+  background-color: black;
+}
+
+.systemconfig {
+  background-color: sandybrown;
+}
+
+    /* from here */
+    .navbar_container {
+      background-color: rgb(255, 255, 255);
+      align-items: center;
+      flex-wrap: wrap;
+      text-align: center;
+      display: flex;
+      padding: 15px 25px;
+      justify-content: space-between;
+    }
+    .navbar_left {
+      display: flex;
+
+      align-items: center;
+      margin-left: 1em;
+    }
+    .dropdown-header,
+    .nav_logo,
+    .icons {
+      margin-left: auto;
+      font-size: 20px;
+      margin-right: 30px;
+    }
+    .navbar_searchbar {
+      padding: 10px;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+    .navbar_right {
+      display: flex;
+     
+    }
+    .nav_logo {
+      width: 75px;
+    }
+    .hide{
+    color: #ffffff;
+    }
+  
+  </style>
+<body>
+   <div class="container">
+    <div class="navbar_container">
+      <div class="container-fluid navbar_left">
+        <p class="hide"><i class="icon_container fas fa-bars" id="btn"></i></p> 
+        <label for="check">
+          <i class="bar_icon fas fa-bars" id="btn"></i>
+          <i class="fas fa-times" id="cancel"></i>
+        </label>  
+        <img
+          class="nav_logo image-responsive"
+          src="https://scontent.fnbo1-1.fna.fbcdn.net/v/t1.6435-0/p526x296/170380606_1339407366432125_902097421149374018_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=730e14&_nc_ohc=belSsNXtRBIAX9MwbMJ&_nc_ht=scontent.fnbo1-1.fna&tp=6&oh=97b83db0690e9c254672dfefd35f22c3&oe=6091C5CE"
+          alt=""
+        />
+
+        <input
+          class="navbar_searchbar"
+          type="text"
+          placeholder="Kindly search here..."
+        />
+        <i
+          style="margin-left: 5px"
+          class="icons fa fa-search"
+          aria-hidden="true"
+        ></i>
+      </div>
+      <div class="container-fluid navbar_right">
+        <h6 class="dropdown-header">Dropdown header</h6>
+        <i class="icons fa fa-paperclip" aria-hidden="true"></i>
+
+        <i class="icons fa fa-calendar" aria-hidden="true"></i>
+        <i class="icons fa fa-comment" aria-hidden="true"></i>
+      </div>
+    </div>
+    {% block content %} 
+        
+    {% endblock content%}
+  </div>
+   <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"
+  
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/e032ed69ea.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+</body>
+ 
+</html>
