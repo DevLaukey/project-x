@@ -45,7 +45,23 @@
         </a>
 
         <input class="navbar_searchbar" type="text" placeholder="Kindly search here..." />
-        <i style="margin-left: 5px" class="icons fa fa-search" aria-hidden="true"></i>
+        <a onclick="search()"><i style="margin-left: 5px" class="icons fa fa-search" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="navbar_right">
+        <div class="dropdown">
+          <a onclick="dropDown()">DropDown<i style="margin-left: 5px" class="icons fa fa-sort-desc"
+              aria-hidden="true"></i></a>
+             
+          <ul id="myDropdown" class="dropdown-content" id="myDropDown">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+
+
+        <a style="margin-left: 5px"><i x class="icons fa fa-calendar" aria-hidden="true"></i></a>
+        <a><i style="margin-left: 5px" class="icons fa fa-comment" aria-hidden="true"></i></a>
       </div>
 
     </div>
@@ -84,19 +100,20 @@
 {% block script%}
 {% endblock %}
 <script>
+
   $(function () {
-      var table = $('table').DataTable({
+    var table = $('table').DataTable({
 
-        buttons: [
-          'copy', 'excel', 'pdf', 'csv'
-        ],
-        dom: 'Bfrtip'
-      });
-
-      table.buttons().container()
-        .appendTo($('.col-sm-6:eq(0)', table.table().container()));
+      buttons: [
+        'copy', 'excel', 'pdf', 'csv'
+      ],
+      dom: 'Bfrtip'
     });
-   
+
+    table.buttons().container()
+      .appendTo($('.col-sm-6:eq(0)', table.table().container()));
+  });
+
 
   function w3_open() {
     document.getElementById("main").style.marginLeft = "17%";

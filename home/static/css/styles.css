@@ -74,7 +74,9 @@ a {
   color: inherit;
   text-decoration: underline;
 }
-
+a:hover{
+  cursor: pointer;
+}
 p {
   margin: 0.83rem 0;
 }
@@ -167,4 +169,19 @@ p {
   }
   .hide{
   color: #ffffff;
+  }
+  /* dropdown */
+  .dropdown-content{
+      display: none;
+      margin-top: 1px;
+        text-decoration: none;
+
+  }
+  .dropdown-content>li{
+    list-style: none;
+    text-align: center;
+    font-size: large;
+  }
+  .dropdown-content>li>a{
+    text-decoration: none;
   }
