@@ -1,0 +1,37 @@
+{% extends 'home/sidebar.html' %}
+{% block bodySection %}
+<section class="p-4">
+  <nav class="navbar navbar-expand-lg text-primary">
+    <div class="" style="width: 100% !important;">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><i class="mdi mdi-apps"></i></li>
+          <li class="breadcrumb-item"><a href="/">App</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'personnel-home' %}">Personnel</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'role-index' %}">Roles</a></li>
+        </ol>
+      </nav>
+    </div>
+  </nav>
+  <h3>
+    <i class="mdi mdi-account-key"></i> Roles
+    <span class="btn btn-outline-primary btn-sm float-right"><i class="mdi mdi-plus"></i> Add</span>
+  </h3>
+  <div class="card mt-5 bg-light">
+    <div class="table-responsive p-3">
+      <table class="table table-condensed table-hover table-stripped table-bordered table-sm">
+        <thead style="font-size: 12px;">
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,52 +1,49 @@
 {% extends 'home/navbar.html'%} 
 {%block content%}
-<div class="homepage">
- 
+{% load static %}
+<style>
+  section {
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  
+  background-image: url(" {% static 'images/p2.jpg' %} ");
+  background-size: cover;
+  background-position: center;
+}
+</style>
+<section>
+  
+  <div class="app-holder">
 
-  <img
-    class="body_logo"
-    width="100px"
-    src="https://scontent.fnbo1-1.fna.fbcdn.net/v/t1.6435-0/p526x296/170380606_1339407366432125_902097421149374018_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=730e14&_nc_ohc=belSsNXtRBIAX9MwbMJ&_nc_ht=scontent.fnbo1-1.fna&tp=6&oh=97b83db0690e9c254672dfefd35f22c3&oe=6091C5CE"
-    alt=""
-  />
-
-  <div class="landing_container container">
-    <div class="frame">
-      <div class="card">
-        <div class="icon_container personnel">
-          <i class="fa homepage_icon fa-users" aria-hidden="true"></i>
-        </div>
-        <div class="homepage_content">
-          <h3>Personnel</h3>
-        </div>
-      </div>
-      <div class="card">
-        <div class="icon_container Inventory">
-          <i class="fa homepage_icon fa-archive" aria-hidden="true"></i>
-        </div>
-        <div class="homepage_content">
-          <h3>Inventory</h3>
-        </div>
-      </div>
-      <div class="card">
-        <div class="icon_container students">
-          <i class="fa homepage_icon fa-graduation-cap" aria-hidden="true"></i>
-        </div>
-        <div class="homepage_content">
-          <h3>Students</h3>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon_container systemconfig">
-          <i class="fa homepage_icon fa-wrench" aria-hidden="true"></i>
-        </div>
-        <div class="homepage_content">
-          <h3>System</h3>
-        </div>
-      </div>
-    </div>
+    <a href="" class="app">
+      <div class="icon w3-orange"><i class="mdi mdi-account-multiple"></i></div>
+      <div class="small w3-padding-small">Students</div>
+    </a>
+    <a href="" class="app">
+      <div class="icon w3-blue"><i class="mdi mdi-package-variant"></i></div>
+      <div class="small w3-padding-small">Inventory</div>
+    </a>
+    <a href="" class="app">
+      <div class="icon w3-teal"><i class="mdi mdi-tools"></i></div>
+      <div class="small w3-padding-small">Equipment</div>
+    </a>
+    <a href="{% url 'personnel-home'%}" class="app">
+      <div class="icon w3-aqua"><img src="{% static 'images/teacher.png' %}" style="width:40px;height:40px" alt=""></div>
+      <div class="small w3-padding-small">Personnel</div>
+    </a> 
+    <a href="" class="app">
+      <div class="icon w3-lime"><i class="fas fa-cogs"></i></div>
+      <div class=" w3-padding-small small">System Settings</div>
+    </a> 
   </div>
-</div>
+ 
+  <div class="overlay"></div>
+  
+</section>
 
 {%endblock content%}

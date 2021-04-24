@@ -1,9 +1,9 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('', views.landing, name='landing'),
-
-    path('dashboard', views.dashboard, name='dashboard'),
-   path('navbar', views.navbar, name='navbar'),
+    path('role-index',views.roles_index,name='role-index'),
+    path('personnel-home',views.personnel_index, name='personnel-home'),
 ]

@@ -5,10 +5,8 @@ from django.http import HttpResponse
 
 def landing(request):
     return render(request, 'home/landing.html')
+def personnel_index(request):
+    return render(request, 'home/Personnel/index.html')
 
-def dashboard(request):
-    return render(request, 'home/sidebar.html')
-
-
-def navbar(request):
-    return render(request, 'home/navbar.html')
+def roles_index(request):
+    return render(request,'home/Personnel/Roles/index.html')
