@@ -19,13 +19,13 @@ a.w3-border-bottom{
   <!-- <button class="w3-bar-item w3-button w3-large float-right""> </button> -->
   <a href="{% url 'personnel-home' %}" class="w3-bar-item w3-button w3-border-bottom pb-3" ><i class="mdi mdi-account-multiple mr-1"></i> Personnel</a>
   <a href="{% url 'role-index' %}" class="w3-bar-item w3-button w3-border-bottom pb-3" ><i class="mdi mdi-account-key mr-1"></i> Roles</a>
-  <a href="#" class="w3-bar-item w3-button w3-border-bottom pb-3" ><i class="mdi mdi-layers mr-1"></i> Departments</a>
+  <a href="{% url 'department-index'%}" class="w3-bar-item w3-button w3-border-bottom pb-3" ><i class="mdi mdi-layers mr-1"></i> Departments</a>
   <a href="#" class="w3-bar-item w3-button w3-border-bottom pb-3" ><i class="mdi mdi-file-certificate mr-1"></i> Certifications</a>
 </div>
 <div id="main">
 
   {% block bodySection %}
-
+  
   {% endblock %}
 
 </div>

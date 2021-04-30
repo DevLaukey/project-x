@@ -10,3 +10,6 @@ def personnel_index(request):
 
 def roles_index(request):
     return render(request,'home/Personnel/Roles/index.html')
+
+def department_index(request):
+    return render(request,'home/Personnel/Departments/index.html')

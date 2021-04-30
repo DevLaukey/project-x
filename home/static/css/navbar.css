@@ -1,3 +1,40 @@
 .navbar_container{
 	  display: none;
 }
+    /* from here */
+  .navbar_container {
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    display: flex;
+    
+    justify-content: space-between;
+  }
+  .navbar_left {
+    display: flex;
+
+    align-items: center;
+    /* margin-left: 1em; */
+  }
+  .dropdown-header,
+  .nav_logo,
+  .icons {
+    margin-left: auto;
+    font-size: 20px;
+    margin-right: 30px;
+  }
+  .navbar_searchbar {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+  .navbar_right {
+    display: flex;
+    
+  }
+  .nav_logo {
+    width: 75px;
+  }
+ 
+  /* dropdown */
